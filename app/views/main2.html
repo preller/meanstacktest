@@ -1,0 +1,110 @@
+<!--<div class="hero-unit">-->
+    <!--<h1>'Allo, 'Allo!</h1>-->
+    <!--<p>You now have</p>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="thing in awesomeThings">{{thing}}</li>-->
+    <!--</ul>-->
+    <!--<p>installed.</p>-->
+    <!--<h3>Enjoy coding! - Yeoman</h3>-->
+<!--</div>-->
+
+
+<!--<table>-->
+    <!--<tr ng-repeat="(compIndex, competitor) in competitors">-->
+        <!--<td ng-repeat="competitor in competitors">{{competitor}}</td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+
+<!--<table ng-table="tableParams" class="table">-->
+    <!--<tr ng-repeat="user in users">-->
+        <!--<td data-title="'Name'" sortable="name">-->
+            <!--{{user.name}}-->
+        <!--</td>-->
+        <!--<td data-title="'Age'" sortable="age">-->
+            <!--{{user.age}}-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+
+<!--
+<table ng-table="tableParams" class="table">
+    <tr>
+        <td data-title="'A'">
+            Competitor
+        </td>
+        <td data-title="'A'">
+            X
+        </td>
+        <td ng-repeat="competitor in competitors">{{$index+1}}</td>
+    </tr>
+    <tr ng-repeat="(compIndex, competitor) in competitors">
+        <td data-title="'A'">
+            {{competitor}}
+        </td>
+        <td data-title="'A'">
+            {{compIndex+1}}
+        </td>
+        <td ng-repeat="competitor in competitors" data-title="'B'">
+            Y
+        </td>
+    </tr>
+</table>-->
+
+
+
+<form name="poule">
+    <table>
+<!--        <tr>
+            <td>
+                Competitor
+            </td>
+            <td>
+                X
+            </td>
+            <td ng-repeat="competitor in competitors">
+                {{$index+1}}
+            </td>
+            <td>
+                V/M
+            </td>
+
+        </tr>-->
+        <tr>
+            <td ng-repeat="header in pouleHeaders">
+                {{header}}
+            </td>
+        </tr>
+        <tr ng-repeat="(compIndex, competitor) in competitors">
+            <td>
+                {{competitor}}
+            </td>
+            <td>
+                {{compIndex+1}}
+            </td>
+            <td ng-repeat="competitor in competitors">
+                <input type="number"
+                       numbers-only
+                       required
+                       ng-model="cell[compIndex][$index]"
+                       max="15"
+                       min="0"
+                       ng-hide="{{isDiagonal(compIndex, $index)}}"
+                        />
+            </td>
+            <td ng-repeat="data in pouleData"
+                    >
+                {{data}}
+            </td>
+        </tr>
+        {{cell}} <br/>
+        {{cell[0][0]}}
+    </table></form>
+<!--<span class="error" ng-show="poule.$error">
+      Too long!</span>-->
+<!--{{!!poule.$error.required}}
+{{!!poule.$error.min}}
+{{!!poule.$error.max}}-->
+
+    <!--<div ngc-table data="data"></div>-->
